@@ -1,2 +1,5 @@
 blog:
     resource: '@BlogBundle/Resources/config/routing.yml'
+
+users:
+    resource: '@UsersBundle/Resources/config/routing.yml'

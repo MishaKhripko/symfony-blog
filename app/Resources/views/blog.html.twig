@@ -1,0 +1,15 @@
+{% include 'head.html.twig' %}
+{% include 'menu.html.twig' %}
+<div>
+    <div>
+        {{ post.title }}
+    </div>
+    <br>
+    <div>
+        {{ post.body }}
+    </div>
+    <div style="float: right">
+        {{ post.created|date('Y-m-d H:i:s') }}
+    </div>
+</div>
+{% include 'footer.html.twig' %}
