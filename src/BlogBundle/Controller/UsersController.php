@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UsersController extends Controller
 {
-    public function register(){
+    public function registerAction(){
         return $this->render("::base.html.twig");
     }
 }

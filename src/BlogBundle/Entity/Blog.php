@@ -13,140 +13,71 @@ use Doctrine\ORM\Mapping as ORM;
 class Blog
 {
     /**
-     * @ORM\Column(type="integer")
      * @ORM\Id
+     * @ORM\Column(type="integer", options={"unsigned": true})
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      */
-    private $id;
+    protected $id;
+    /**
+     * @ORM\Column(type="string", length=64, nullable=false)
+     */
+    protected $title;
+
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text", nullable=false)
      */
-    private $title;
+    protected $body;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(nullable=false)
+     * @ORM\ManyToOne(targetEntity="user")
+     * @ORM\JoinColumn(name = "user_id", referencedColumnName="id")
      */
-    private $summary;
+    protected $user;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="datetime", nullable=false)
      */
-    private $body;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
-
+    protected $created;
     public function __construct()
     {
         $this->created = new \DateTime();
     }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Blog
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set summary
-     *
-     * @param string $summary
-     *
-     * @return Blog
-     */
-    public function setSummary($summary)
-    {
-        $this->summary = $summary;
-
-        return $this;
-    }
-
-    /**
-     * Get summary
-     *
-     * @return string
-     */
-    public function getSummary()
-    {
-        return $this->summary;
-    }
-
-    /**
-     * Set body
-     *
-     * @param string $body
-     *
-     * @return Blog
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-
-        return $this;
-    }
-
-    /**
-     * Get body
-     *
-     * @return string
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     *
-     * @return Blog
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

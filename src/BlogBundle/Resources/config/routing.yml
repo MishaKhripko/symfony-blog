@@ -7,3 +7,7 @@ blog_view:
     defaults: { _controller: BlogBundle:Blog:viewBlog }
     requirements:
       id: \d+
+
+register:
+    path: /register
+    defaults: { _controller: UsersBundle:Users:register }
