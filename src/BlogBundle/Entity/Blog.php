@@ -31,9 +31,8 @@ class Blog
     protected $body;
 
     /**
-     * @ORM\Column(nullable=false)
      * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\User")
-     * @ORM\JoinColumn(name = "user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name = "userlogin", referencedColumnName="login")
      */
     protected $user;
 
