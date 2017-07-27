@@ -18,35 +18,29 @@ class Blog
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      */
-    private $id;
+    protected $id;
+    /**
+     * @ORM\Column(type="string", length=64, nullable=false)
+     */
+    protected $title;
+
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text", nullable=false)
      */
-    private $user_login;
+    protected $body;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(nullable=false)
+     * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\User")
+     * @ORM\JoinColumn(name = "user_id", referencedColumnName="id")
      */
-    private $title;
+    protected $user;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="datetime", nullable=false)
      */
-    private $body;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="UsersBundle\Entity\Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_login", referencedColumnName="login", nullable=false)
-     * })
-     */
-    private $user;
+    protected $created;
     public function __construct()
     {
         $this->created = new \DateTime();
@@ -111,6 +105,30 @@ class Blog
     }
 
     /**
+     * Set user
+     *
+     * @param string $user
+     *
+     * @return Blog
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
      * Set created
      *
      * @param \DateTime $created
@@ -132,29 +150,5 @@ class Blog
     public function getCreated()
     {
         return $this->created;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \UsersBundle\Entity\Users $user
-     *
-     * @return Blog
-     */
-    public function setUser(\UsersBundle\Entity\Users $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \UsersBundle\Entity\Users
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }
