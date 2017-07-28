@@ -5,12 +5,12 @@ namespace BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Blog
+ * Class Post
  * @package BlogBundle\Entity
- * @ORM\Table(name="blog")
+ * @ORM\Table(name="post")
  * @ORM\Entity
  */
-class Blog
+class Post
 {
     /**
      * @ORM\Id
@@ -19,11 +19,11 @@ class Blog
      *
      */
     protected $id;
+
     /**
      * @ORM\Column(type="string", length=64, nullable=false)
      */
     protected $title;
-
 
     /**
      * @ORM\Column(type="text", nullable=false)
@@ -60,7 +60,7 @@ class Blog
      *
      * @param string $title
      *
-     * @return Blog
+     * @return Post
      */
     public function setTitle($title)
     {
@@ -84,7 +84,7 @@ class Blog
      *
      * @param string $body
      *
-     * @return Blog
+     * @return Post
      */
     public function setBody($body)
     {
@@ -104,13 +104,23 @@ class Blog
     }
 
     /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
      * Set user
      *
-     * @param string $user
+     * @param \BlogBundle\Entity\User $user
      *
-     * @return Blog
+     * @return Post
      */
-    public function setUser($user)
+    public function setUser(\BlogBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -120,34 +130,10 @@ class Blog
     /**
      * Get user
      *
-     * @return string
+     * @return \BlogBundle\Entity\User
      */
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     *
-     * @return Blog
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
     }
 }

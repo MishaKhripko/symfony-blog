@@ -1,13 +1,13 @@
 homepage:
     path: /
-    defaults: { _controller: BlogBundle:Blog:homepage }
+    defaults: { _controller: BlogBundle:Post:homepage }
 
 blog_view:
     path: /blog/{id}
-    defaults: { _controller: BlogBundle:Blog:viewBlog }
+    defaults: { _controller: BlogBundle:Post:viewBlog }
     requirements:
       id: \d+
 
-register:
-    path: /register
-    defaults: { _controller: UsersBundle:Users:register }
+authorization:
+    path: /authorization
+    defaults: { _controller: BlogBundle:Users:authorization }

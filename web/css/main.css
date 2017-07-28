@@ -1,0 +1,10 @@
+.headerMenu{
+    width: 100%;
+    height: calc(10% - 20px);%;
+    position: absolute;
+    padding: 10px;
+    background-color: #444444;
+}
+body{
+    margin: 0px;
+}

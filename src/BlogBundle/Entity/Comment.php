@@ -36,7 +36,7 @@ class Comment
     protected $created;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Blog")
+     * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Post")
      * @ORM\JoinColumn(name="blogid", referencedColumnName="id")
      */
     protected $post;
@@ -107,11 +107,11 @@ class Comment
     /**
      * Set user
      *
-     * @param \UsersBundle\Entity\User $user
+     * @param \BlogBundle\Entity\User $user
      *
      * @return Comment
      */
-    public function setUser(\UsersBundle\Entity\User $user = null)
+    public function setUser(\BlogBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -121,7 +121,7 @@ class Comment
     /**
      * Get user
      *
-     * @return \UsersBundle\Entity\User
+     * @return \BlogBundle\Entity\User
      */
     public function getUser()
     {
@@ -131,11 +131,11 @@ class Comment
     /**
      * Set post
      *
-     * @param \BlogBundle\Entity\Blog $post
+     * @param \BlogBundle\Entity\Post $post
      *
      * @return Comment
      */
-    public function setPost(\BlogBundle\Entity\Blog $post = null)
+    public function setPost(\BlogBundle\Entity\Post $post = null)
     {
         $this->post = $post;
 
@@ -145,7 +145,7 @@ class Comment
     /**
      * Get post
      *
-     * @return \BlogBundle\Entity\Blog
+     * @return \BlogBundle\Entity\Post
      */
     public function getPost()
     {

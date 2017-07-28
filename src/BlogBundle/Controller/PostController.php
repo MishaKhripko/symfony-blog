@@ -4,7 +4,7 @@ namespace BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
 
     public function homepageAction(){

@@ -1,0 +1,13 @@
+{% include 'head.html.twig' %}
+{% include 'menu.html.twig' %}
+<div>
+    <p>Authorization</p>
+    {{ form_start(auth) }}
+    {{ form_widget(auth) }}
+    {{ form_end(auth) }}
+    <p>Register</p>
+    {{ form_start(reg) }}
+    {{ form_widget(reg) }}
+    {{ form_end(reg) }}
+</div>
+{% include 'footer.html.twig' %}

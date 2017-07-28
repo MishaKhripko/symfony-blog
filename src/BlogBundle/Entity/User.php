@@ -5,9 +5,9 @@ namespace BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Users
- * @package UsersBundle\Entity
- * @ORM\Table(name="users")
+ * Class User
+ * @package BlogBundle\Entity
+ * @ORM\Table(name="user")
  * @ORM\Entity
  */
 class User
